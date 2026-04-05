@@ -23,7 +23,7 @@
     --footer-height: 160px; 
 }
 
-/* <!--Formátovanie (Formatting) --> */
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }   
 body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--text-primary); background: var(--white); }
@@ -33,7 +33,7 @@ h2 { font-size: 2rem; font-weight: 700; line-height: 1.3; margin-bottom: 1rem; }
 h3 { font-size: 1.5rem; font-weight: 600; line-height: 1.4; margin-bottom: 0.75rem; }
 h4 { font-size: 1.25rem; font-weight: 600; line-height: 1.5; margin-bottom: 0.5rem; }
 
-/* <!-- Textové prvky --> */
+
 p { margin-bottom: 1rem; line-height: 1.7; }
 a { text-decoration: none; color: inherit; transition: var(--transition); }
 img { max-width: 100%; height: auto; display: block; }
@@ -41,7 +41,7 @@ img { max-width: 100%; height: auto; display: block; }
 .container { max-width: var(--container-max); margin: 0 auto; padding: 0 20px; }
 .container-narrow { max-width: var(--container-narrow); margin: 0 auto; padding: 0 20px; }
 
-/* <!-- ---------- Navigácia ---------- --> */
+
 .navbar { background: var(--white); box-shadow: var(--shadow-sm); position: sticky; top: 0; z-index: 1000; }
 .nav-wrapper { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
 .logo { display: flex; align-items: center; gap: 0.5rem; font-size: 1.25rem; font-weight: 700; color: var(--text-primary); }
@@ -57,7 +57,7 @@ img { max-width: 100%; height: auto; display: block; }
 .hamburger.active span:nth-child(2) { opacity: 0; }
 .hamburger.active span:nth-child(3) { transform: rotate(45deg) translate(-5px, -6px); }
 
-/* <!-- Alert styles --> */
+
 .alert { background: var(--accent); border-left: 4px solid var(--primary); padding: 1rem 0; }
 .alert-content { display: flex; align-items: flex-start; gap: 1rem; }
 .alert-icon { font-size: 1.25rem; flex-shrink: 0; }
@@ -67,7 +67,7 @@ img { max-width: 100%; height: auto; display: block; }
 .alert-close:hover { color: var(--primary-hover); }
 .alert.hidden { display: none; }
 
-/*<!-- Page headers and banners --> */
+
 .hero { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); color: var(--white); padding: 5rem 0; }
 .hero-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
 .hero h1 { color: var(--white); margin-bottom: 1rem; }
@@ -76,7 +76,7 @@ img { max-width: 100%; height: auto; display: block; }
 .hero-image { border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-lg); }
 .hero-image img { width: 100%; height: 400px; object-fit: cover; }
 
-/* <!-- ---------- Tlačidlá (Buttons) ---------- --> */
+
 .btn { display: inline-block; padding: 0.75rem 2rem; border-radius: var(--radius-sm); font-weight: 600; text-align: center; cursor: pointer; border: none; transition: var(--transition); }
 .btn-primary { background: var(--primary); color: var(--white); }
 .btn-primary:hover { background: var(--primary-hover); }
@@ -86,7 +86,7 @@ img { max-width: 100%; height: auto; display: block; }
 .btn-secondary:hover { background: #d1d5db; }
 .btn-full { width: 100%; }
 
-/* <!-- ---------- funkcie ---------- --> */
+
 .features { padding: 4rem 0; background: var(--white); }
 .section-header { text-align: center; max-width: 700px; margin: 0 auto 3rem; }
 .section-header h2 { color: var(--text-primary); }
@@ -99,7 +99,7 @@ img { max-width: 100%; height: auto; display: block; }
 .feature-list li { color: var(--text-secondary); padding: 0.5rem 0 0.5rem 1.5rem; position: relative; }
 .feature-list li::before { content: '•'; color: var(--primary); font-weight: bold; position: absolute; left: 0; }
 
-/* <!--Carousel--> */
+
 .carousel-section { padding: 4rem 0; background: var(--gray-50); }
 .carousel { position: relative; background: var(--white); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-md); }
 .carousel-container { display: flex; transition: transform 0.5s ease; }
@@ -118,7 +118,7 @@ img { max-width: 100%; height: auto; display: block; }
 .indicator { width: 10px; height: 10px; border-radius: 50%; background: #d1d5db; border: none; cursor: pointer; transition: var(--transition); }
 .indicator.active { background: var(--primary); width: 30px; border-radius: 5px; }
 
-/* <!-- ---------- Recenzie ---------- --> */
+
 .reviews { padding: 4rem 0; background: var(--white); }
 .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
 .review-card { background: var(--gray-50); padding: 2rem; border-radius: var(--radius-md); }
@@ -126,12 +126,12 @@ img { max-width: 100%; height: auto; display: block; }
 .review-text { color: var(--text-secondary); font-style: italic; margin-bottom: 1rem; }
 .review-author { color: var(--text-primary); font-weight: 600; }
 
-/* <!-- ---------- CTA ---------- --> */
+
 .cta { background: var(--primary); color: var(--white); padding: 4rem 0; text-align: center; }
 .cta h2 { color: var(--white); margin-bottom: 1rem; }
 .cta p { color: var(--accent-light); font-size: 1.1rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
 
-/* <!-- ---------- Footer ---------- --> */
+
 .footer { background: #111827; color: #d1d5db; padding: 3rem 0 1rem; }
 .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
 .footer-logo { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; color: #fff; font-weight: 700; }
@@ -157,14 +157,14 @@ img { max-width: 100%; height: auto; display: block; }
     .page-header .btn { margin-top: 1rem; }
 }
 
-/* <!-- ---------- O nás ---------- --> */
+
 .about-story { padding: 4rem 0; background: #fff; }
 .two-col-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
 .col-text h2 { color: #111827; margin-bottom: 1.5rem; }
 .col-text p { color: #4b5563; margin-bottom: 1rem; }
 .col-image img { border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
 
-/* <!-- ---------- čísla ---------- --> */
+
 .stats { padding: 4rem 0; background: #f9fafb; }
 .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
 .stat-card { text-align: center; }

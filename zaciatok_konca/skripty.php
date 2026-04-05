@@ -1,3 +1,4 @@
+<script>
 document.addEventListener('DOMContentLoaded', function() {
     function setLayoutVars() {
         try {
@@ -8,8 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const footerHeight = footer ? footer.offsetHeight : 160;
             root.style.setProperty('--header-height', `${headerHeight}px`);
             root.style.setProperty('--footer-height', `${footerHeight}px`);
-        } catch (e) {
-        }
+        } catch (e) {}
     }
     setLayoutVars();
     let resizeTimeout = null;
@@ -20,14 +20,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('navMenu');
 
-    // <!-- Inicializácia navigácie pre mobilné zariadenia (Hamburger Menu) -->
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', function() {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
 
-    // <!-- Zatvorenie navigácie po kliknutí na odkaz (pre UX na mobiloch) -->
         const navLinks = document.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
@@ -51,10 +49,9 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 a.classList.remove('active');
             }
-        } catch(e) {  }
+        } catch(e) {}
     });
 
-    // <!--  tieň  -->
     const navbar = document.getElementById('navbar');
     if (navbar) {
         window.addEventListener('scroll', function() {
@@ -67,7 +64,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// <!-- Alert -->
 const alertElement = document.getElementById('alert');
 const alertClose = document.getElementById('alertClose');
 
@@ -77,7 +73,6 @@ if (alertClose && alertElement) {
     });
 }
 
-// <!-- Carousel -->
 const carouselContainer = document.getElementById('carouselContainer');
 const carouselPrev = document.getElementById('carouselPrev');
 const carouselNext = document.getElementById('carouselNext');
@@ -85,42 +80,12 @@ const carouselIndicators = document.getElementById('carouselIndicators');
 
 if (carouselContainer) {
     const slides = [
-        {
-            title: 'Servis a údržba',
-            description: 'Pravidelný servis, výmena olejov a filtrov, kontrola brzd a pneumatík',
-            icon: '🔧',
-            image: 'img/Servis a údržba.jpg'
-        },
-        {
-            title: 'Diagnostika',
-            description: 'Komplexná elektronická diagnostika, kontrola motora a podvozku',
-            icon: '📊',
-            image: 'img/Diagnostika.jpg'
-        },
-        {
-            title: 'Opravy motora',
-            description: 'Generálne opravy, výmena rozvodov, opravy chladenia a vstrekovania',
-            icon: '⚙️',
-            image: 'img/Opravy motora.jpg'
-        },
-        {
-            title: 'Klimatizácia',
-            description: 'Servis klimatizácie, plnenie chladiva, dezinfekcia',
-            icon: '❄️',
-            image: 'img/Klimatizácia.jpg'
-        },
-        {
-            title: 'Elektrika',
-            description: 'Opravy elektrickej inštalácie, batérie, generátory, štartéry',
-            icon: '⚡',
-            image: 'img/Elektrika.jpg'
-        },
-        {
-            title: 'Karoséria a lak',
-            description: 'Opravy karosérie, lakované práce, odstránenie hrdze',
-            icon: '🚗',
-            image: 'img/Karoséria a lak.jpg'
-        }
+        { title: 'Servis a údržba', description: 'Pravidelný servis, výmena olejov a filtrov, kontrola brzd a pneumatík', icon: '🔧', image: 'img/Servis a údržba.jpg' },
+        { title: 'Diagnostika', description: 'Komplexná elektronická diagnostika, kontrola motora a podvozku', icon: '📊', image: 'img/Diagnostika.jpg' },
+        { title: 'Opravy motora', description: 'Generálne opravy, výmena rozvodov, opravy chladenia a vstrekovania', icon: '⚙️', image: 'img/Opravy motora.jpg' },
+        { title: 'Klimatizácia', description: 'Servis klimatizácie, plnenie chladiva, dezinfekcia', icon: '❄️', image: 'img/Klimatizácia.jpg' },
+        { title: 'Elektrika', description: 'Opravy elektrickej inštalácie, batérie, generátory, štartéry', icon: '⚡', image: 'img/Elektrika.jpg' },
+        { title: 'Karoséria a lak', description: 'Opravy karosérie, lakované práce, odstránenie hrdze', icon: '🚗', image: 'img/Karoséria a lak.jpg' }
     ];
 
     let currentSlide = 0;
@@ -128,15 +93,15 @@ if (carouselContainer) {
     slides.forEach((slide, index) => {
         const slideElement = document.createElement('div');
         slideElement.className = 'carousel-slide';
-        slideElement.innerHTML = `<div class="carousel-text">
+        slideElement.innerHTML = `
+            <div class="carousel-text">
                 <div class="carousel-icon">${slide.icon}</div>
                 <h3>${slide.title}</h3>
                 <p>${slide.description}</p>
             </div>
             <div class="carousel-image">
                 <img src="${slide.image}" alt="${slide.title}" loading="lazy">
-            </div>
-        `;
+            </div>`;
         carouselContainer.appendChild(slideElement);
     });
 
@@ -167,7 +132,7 @@ if (carouselContainer) {
     }
 
     function prevSlide() {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length; 
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
         updateCarousel();
     }
 
@@ -176,139 +141,34 @@ if (carouselContainer) {
         updateCarousel();
     }
 
-    if (carouselNext) {
-        carouselNext.addEventListener('click', nextSlide);
-    }
-    if (carouselPrev) {
-        carouselPrev.addEventListener('click', prevSlide);
-    }
+    if (carouselNext) carouselNext.addEventListener('click', nextSlide);
+    if (carouselPrev) carouselPrev.addEventListener('click', prevSlide);
 
     setInterval(nextSlide, 5000);
 }
-
-// <!-- Akordeón (Akordeon)  -->
 
 const accordion = document.getElementById('servicesAccordion');
 
 if (accordion) {
     const services = [
-        {
-            title: 'Pravidelný servis a údržba',
-            description: 'Komplexný servis podľa kilometrov alebo času',
-            icon: '🔧',
-            details: [
-                'Výmena motorového oleja a olejového filtra',
-                'Kontrola a výmena vzduchového filtra',
-                'Kontrola brzdovej sústavy',
-                'Kontrola odpruženia a riadenia',
-                'Kontrola svietidiel a signalizácie',
-                'Kontrola hladín prevádzkových kvapalín',
-                'Reset servisného intervalu'
-            ]
-        },
-        {
-            title: 'Diagnostika a kontrola',
-            description: 'Elektronická diagnostika všetkých systémov vozidla',
-            icon: '📊',
-            details: [
-                'Kompletná diagnostika riadiacich jednotiek',
-                'Mazanie chybových hlášok',
-                'Kontrola emisií',
-                'Diagnostika motora a prevodovky',
-                'Kontrola ABS a ESP systémov',
-                'Diagnostika klimatizácie',
-                'Vypracovanie protokolu o stave vozidla'
-            ]
-        },
-        {
-            title: 'Opravy motora a prevodovky',
-            description: 'Špecializujeme sa na opravy motorov všetkých typov',
-            icon: '⚙️',
-            details: [
-                'Výmena rozvodových súprav',
-                'Opravy hlavy valcov',
-                'Výmena tesnení a ucpávok',
-                'Opravy systému vstrekovania',
-                'Opravy chladenia motora',
-                'Generálne opravy motorov',
-                'Opravy automatických prevodoviek'
-            ]
-        },
-        {
-            title: 'Klimatizácia',
-            description: 'Servis a opravy klimatizačných systémov',
-            icon: '❄️',
-            details: [
-                'Plnenie a kontrola chladiva',
-                'Dezinfekcia klimatizácie ozónom',
-                'Výmena kabínového filtra',
-                'Opravy kompresorov',
-                'Vyhľadávanie netesností',
-                'Výmena kondenzátorov a výparníkov'
-            ]
-        },
-        {
-            title: 'Elektrika a elektronika',
-            description: 'Riešenie problémov s elektrickou inštaláciou',
-            icon: '⚡',
-            details: [
-                'Diagnostika elektrických porúch',
-                'Výmena a nabíjanie autobatérií',
-                'Opravy generátorov a štartérov',
-                'Opravy svetelnej techniky',
-                'Montáž parkovacích senzorov a kamier',
-                'Montáž alarm a imobilizérov'
-            ]
-        },
-        {
-            title: 'Karoséria a lak',
-            description: 'Opravy poškodení karosérie a lakované práce',
-            icon: '🚗',
-            details: [
-                'Opravy poškodení z nehôd',
-                'Bodové lakovanie',
-                'Kompletné prelakovanie vozidla',
-                'Opravy plastových nárazníkov',
-                'Odstránenie hrdze a antikorózna ochrana',
-                'Leštenie a obnova laku'
-            ]
-        },
-        {
-            title: 'Brzdy a podvozok',
-            description: 'Servis brzdovej sústavy a podvozku',
-            icon: '🛡️',
-            details: [
-                'Výmena brzdových kotúčov a platničiek',
-                'Výmena brzdovej kvapaliny',
-                'Opravy hydraulických vedení',
-                'Výmena tlmičov a pružín',
-                'Opravy riadenia',
-                'Geometria kolies'
-            ]
-        },
-        {
-            title: 'Príprava na STK a EK',
-            description: 'Kompletná príprava vozidla na kontroly',
-            icon: '✅',
-            details: [
-                'Predkontrolná prehliadka vozidla',
-                'Oprava závad',
-                'Kontrola emisií',
-                'Geometria svetlometov',
-                'Doplnenie prevádzkových kvapalín',
-                'Zabezpečenie protokolu o opravách'
-            ]
-        }
+        { title: 'Pravidelný servis a údržba', description: 'Komplexný servis podľa kilometrov alebo času', icon: '🔧', details: ['Výmena motorového oleja a olejového filtra','Kontrola a výmena vzduchového filtra','Kontrola brzdovej sústavy','Kontrola odpruženia a riadenia','Kontrola svietidiel a signalizácie','Kontrola hladín prevádzkových kvapalín','Reset servisného intervalu'] },
+        { title: 'Diagnostika a kontrola', description: 'Elektronická diagnostika všetkých systémov vozidla', icon: '📊', details: ['Kompletná diagnostika riadiacich jednotiek','Mazanie chybových hlášok','Kontrola emisií','Diagnostika motora a prevodovky','Kontrola ABS a ESP systémov','Diagnostika klimatizácie','Vypracovanie protokolu o stave vozidla'] },
+        { title: 'Opravy motora a prevodovky', description: 'Špecializujeme sa na opravy motorov všetkých typov', icon: '⚙️', details: ['Výmena rozvodových súprav','Opravy hlavy valcov','Výmena tesnení a ucpávok','Opravy systému vstrekovania','Opravy chladenia motora','Generálne opravy motorov','Opravy automatických prevodoviek'] },
+        { title: 'Klimatizácia', description: 'Servis a opravy klimatizačných systémov', icon: '❄️', details: ['Plnenie a kontrola chladiva','Dezinfekcia klimatizácie ozónom','Výmena kabínového filtra','Opravy kompresorov','Vyhľadávanie netesností','Výmena kondenzátorov a výparníkov'] },
+        { title: 'Elektrika a elektronika', description: 'Riešenie problémov s elektrickou inštaláciou', icon: '⚡', details: ['Diagnostika elektrických porúch','Výmena a nabíjanie autobatérií','Opravy generátorov a štartérov','Opravy svetelnej techniky','Montáž parkovacích senzorov a kamier','Montáž alarm a imobilizérov'] },
+        { title: 'Karoséria a lak', description: 'Opravy poškodení karosérie a lakované práce', icon: '🚗', details: ['Opravy poškodení z nehôd','Bodové lakovanie','Kompletné prelakovanie vozidla','Opravy plastových nárazníkov','Odstránenie hrdze a antikorózna ochrana','Leštenie a obnova laku'] },
+        { title: 'Brzdy a podvozok', description: 'Servis brzdovej sústavy a podvozku', icon: '🛡️', details: ['Výmena brzdových kotúčov a platničiek','Výmena brzdovej kvapaliny','Opravy hydraulických vedení','Výmena tlmičov a pružín','Opravy riadenia','Geometria kolies'] },
+        { title: 'Príprava na STK a EK', description: 'Kompletná príprava vozidla na kontroly', icon: '✅', details: ['Predkontrolná prehliadka vozidla','Oprava závad','Kontrola emisií','Geometria svetlometov','Doplnenie prevádzkových kvapalín','Zabezpečenie protokolu o opravách'] }
     ];
 
     services.forEach((service, index) => {
         const item = document.createElement('div');
         item.className = 'accordion-item';
 
-        // <!--Zoznam (Lists) -->
         const detailsList = service.details.map(detail => `<li>${detail}</li>`).join('');
 
-        item.innerHTML = `<button class="accordion-header" aria-expanded="false" data-index="${index}">
+        item.innerHTML = `
+            <button class="accordion-header" aria-expanded="false" data-index="${index}">
                 <div class="accordion-icon-wrapper">
                     <span class="accordion-icon">${service.icon}</span>
                 </div>
@@ -323,8 +183,7 @@ if (accordion) {
                     <h4>Čo zahŕňa táto služba:</h4>
                     <ul>${detailsList}</ul>
                 </div>
-            </div>
-        `;
+            </div>`;
         accordion.appendChild(item);
     });
 
@@ -353,8 +212,6 @@ if (accordion) {
     }
 }
 
-
-// <!--  Formulár ()  -->
 const contactForm = document.getElementById('contactForm');
 
 if (contactForm) {
@@ -367,24 +224,16 @@ if (contactForm) {
         const input = document.getElementById(inputId);
         const errorElement = document.getElementById(inputId + 'Error');
 
-        if (input) {
-            input.classList.add('error');
-        }
-        if (errorElement) {
-            errorElement.textContent = message;
-        }
+        if (input) input.classList.add('error');
+        if (errorElement) errorElement.textContent = message;
     }
 
     function clearError(inputId) {
         const input = document.getElementById(inputId);
         const errorElement = document.getElementById(inputId + 'Error');
 
-        if (input) {
-            input.classList.remove('error');
-        }
-        if (errorElement) {
-            errorElement.textContent = '';
-        }
+        if (input) input.classList.remove('error');
+        if (errorElement) errorElement.textContent = '';
     }
 
     const formInputs = contactForm.querySelectorAll('input, textarea');
@@ -396,10 +245,9 @@ if (contactForm) {
     });
 
     contactForm.addEventListener('submit', function(e) {
-        e.preventDefault(); // Zabránenie štandardnému odoslaniu
-        
-        let isValid = true;
+        e.preventDefault();
 
+        let isValid = true;
 
         const name = document.getElementById('name').value.trim();
         if (!name) {
@@ -441,6 +289,7 @@ if (contactForm) {
         } else {
             clearError('consent');
         }
+
         if (isValid) {
             console.log('Formulár odoslaný:', {
                 name: name,
@@ -454,8 +303,6 @@ if (contactForm) {
     });
 }
 
-
-// <!-- Plynulé posúvanie (smooth scrolling) -->
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
@@ -465,7 +312,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             if (target) {
                 target.scrollIntoView({
                     behavior: 'smooth',
-                    block: 'start' 
+                    block: 'start'
                 });
             }
         }
@@ -473,14 +320,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 if ('IntersectionObserver' in window) {
-
     const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const img = entry.target;
                 if (img.dataset.src) {
                     img.src = img.dataset.src;
-                    img.removeAttribute('data-src'); 
+                    img.removeAttribute('data-src');
                 }
                 observer.unobserve(img);
             }
@@ -491,4 +337,6 @@ if ('IntersectionObserver' in window) {
         imageObserver.observe(img);
     });
 }
+
 console.log('AutoServis Pro - Webstránka úspešne načítaná! 🔧');
+</script>
