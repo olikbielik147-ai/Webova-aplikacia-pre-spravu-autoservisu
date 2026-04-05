@@ -76,76 +76,40 @@
                     <div class="contact-form-wrapper">
                         <h2>Napíšte nám</h2>
                         
-                        <form id="contactForm" class="contact-form" novalidate>
-                            <div class="form-group">
-                                <label for="name">Meno a priezvisko <span class="required">*</span></label>
-                                <input 
-                                    type="text" 
-                                    id="name" 
-                                    name="name" 
-                                    placeholder="Ján Novák"
-                                    required
-                                >
-                                <span class="error-message" id="nameError"></span>
-                            </div>
+                      <?php
+$errors = [];
+$success = false;
 
-                            <div class="form-group">
-                                <label for="email">Email <span class="required">*</span></label>
-                                <input 
-                                    type="email" 
-                                    id="email" 
-                                    name="email" 
-                                    placeholder="jan.novak@example.com"
-                                    required
-                                >
-                                <span class="error-message" id="emailError"></span>
-                            </div>
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-                            <div class="form-group">
-                                <label for="phone">Telefón</label>
-                                <input 
-                                    type="tel" 
-                                    id="phone" 
-                                    name="phone" 
-                                    placeholder="+421 901 234 567"
-                                >
-                            </div>
+    $name = trim($_POST["name"] ?? "");
+    $email = trim($_POST["email"] ?? "");
+    $phone = trim($_POST["phone"] ?? "");
+    $message = trim($_POST["message"] ?? "");
+    $consent = isset($_POST["consent"]);
 
-                            <div class="form-group">
-                                <label for="message">Vaša správa <span class="required">*</span></label>
-                                <textarea 
-                                    id="message" 
-                                    name="message" 
-                                    rows="5" 
-                                    placeholder="Napíšte nám vašu správu alebo otázku..."
-                                    required
-                                ></textarea>
-                                <span class="error-message" id="messageError"></span>
-                            </div>
+    if ($name === "" || strlen($name) < 2) {
+        $errors["name"] = "Meno musí mať aspoň 2 znaky.";
+    }
 
-                            <div class="form-group checkbox-group">
-                                <label class="checkbox-label">
-                                    <input 
-                                        type="checkbox" 
-                                        id="consent" 
-                                        name="consent"
-                                        required
-                                    >
-                                    <span>
-                                        Súhlasím so spracovaním osobných údajov za účelom vybavenia mojej požiadavky. 
-                                        Vaše údaje nebudú poskytnuté tretím stranám a budú použité len na komunikáciu s vami.
-                                        <span class="required">*</span>
-                                    </span>
-                                </label>
-                                <span class="error-message" id="consentError"></span>
-                            </div>
+    if ($email === "" || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors["email"] = "Zadajte platný email.";
+    }
 
-                            <button type="submit" class="btn btn-primary btn-full">
-                                Odoslať správu →
-                            </button>
+    if ($message === "" || strlen($message) < 10) {
+        $errors["message"] = "Správa musí mať aspoň 10 znakov.";
+    }
 
-                            <p class="form-note"><span class="required">*</span> Povinné polia</p>
-                        </form>
+    if (!$consent) {
+        $errors["consent"] = "Musíte súhlasiť so spracovaním údajov.";
+    }
+
+    if (empty($errors)) {
+        header("Location: dakujeme.php");
+        exit;
+    }
+}
+?>
                     </div>
                 </div>
             </div>
