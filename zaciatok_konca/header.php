@@ -6,7 +6,6 @@
                     <span class="logo-text">AutoServis Pro</span>
                 </a>
 
-                <!-- Hlavné menu s odkazmi na stránky -->
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="index.php" class="nav-link">Domov</a></li>
                     <li><a href="o_nas.php" class="nav-link">O nás</a></li>
@@ -14,7 +13,7 @@
                     <li><a href="kontakt.php" class="nav-link">Kontakt</a></li>
                 </ul>
 
-                <!-- Tlačidlo hamburger menu pre mobilné zariadenia -->
+
                 <button class="hamburger" id="hamburger" aria-label="Toggle menu">
                     <span></span>
                     <span></span>

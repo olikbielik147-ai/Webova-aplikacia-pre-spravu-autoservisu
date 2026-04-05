@@ -4,22 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Meta značky-->
     <meta name="description" content="Kontakt - AutoServis Pro. Kontaktujte nás na +421 901 234 567 alebo info@autoservispro.sk. Nájdete nás na Hlavná 123, Žilina.">
     <meta name="keywords" content="kontakt, autoservis žilina, telefón, email, adresa, objednávka, formulár">
     <meta name="author" content="AutoServis Pro">
     
     <title>Kontakt - AutoServis Pro</title>
     
-    <!-- prepojenie css -->
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
     <?php require __DIR__ . '/zaciatok_konca/header.php'; ?>
 
     <main>
-        <!--Banner s textom (Page header) -->
-        <!-- Rôzne nadpisy (Headings) -->
         <section class="page-header page-header-blue">
             <div class="container">
                 <h1>Kontakt</h1>
@@ -27,7 +24,8 @@
             </div>
         </section>
 
-        <!-- Sekcia s kontaktnými informáciami a formulárom -->
+
+
         <section class="contact-section">
             <div class="container">
                 <div class="contact-grid">
@@ -41,7 +39,6 @@
                             </div>
                         </div>
 
-                        <!-- Odkaz na email a telefón (mailto / tel) -->
                         <div class="contact-item">
                             <div class="contact-icon">📞</div>
                             <div>
@@ -72,7 +69,6 @@
                             </div>
                         </div>
 
-                        <!--Obrázky (Images) -->
                         <div class="contact-image">
                             <img src="img/oprava vozidla kontakt.jpg" alt="AutoServis Pro" loading="lazy">
                         </div>
@@ -80,9 +76,7 @@
                     <div class="contact-form-wrapper">
                         <h2>Napíšte nám</h2>
                         
-                        <!--Formulár (Form) -->
                         <form id="contactForm" class="contact-form" novalidate>
-                            <!-- Pole pre meno a priezvisko -->
                             <div class="form-group">
                                 <label for="name">Meno a priezvisko <span class="required">*</span></label>
                                 <input 
@@ -95,7 +89,6 @@
                                 <span class="error-message" id="nameError"></span>
                             </div>
 
-                            <!-- Pole pre emailovú adresu -->
                             <div class="form-group">
                                 <label for="email">Email <span class="required">*</span></label>
                                 <input 
@@ -108,7 +101,6 @@
                                 <span class="error-message" id="emailError"></span>
                             </div>
 
-                            <!-- Pole pre telefónne číslo (voliteľné) -->
                             <div class="form-group">
                                 <label for="phone">Telefón</label>
                                 <input 
@@ -119,7 +111,6 @@
                                 >
                             </div>
 
-                            <!-- Pole pre správu -->
                             <div class="form-group">
                                 <label for="message">Vaša správa <span class="required">*</span></label>
                                 <textarea 
@@ -132,7 +123,6 @@
                                 <span class="error-message" id="messageError"></span>
                             </div>
 
-                            <!-- checkbox -->
                             <div class="form-group checkbox-group">
                                 <label class="checkbox-label">
                                     <input 
@@ -150,7 +140,6 @@
                                 <span class="error-message" id="consentError"></span>
                             </div>
 
-                            <!-- Tlačidlo na odoslanie formulára -->
                             <button type="submit" class="btn btn-primary btn-full">
                                 Odoslať správu →
                             </button>
@@ -165,4 +154,4 @@
    <?php require __DIR__ . '/zaciatok_konca/footer.php'; ?>
 <?php require __DIR__ . '/zaciatok_konca/skripty.php'; ?>
 </body>
-</html>
+</html>M
