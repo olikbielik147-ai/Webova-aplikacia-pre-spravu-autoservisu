@@ -1,3 +1,36 @@
+<?php
+$errors = [];
+$name = $email = $phone = $message = "";
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $name = trim($_POST["name"] ?? "");
+    $email = trim($_POST["email"] ?? "");
+    $phone = trim($_POST["phone"] ?? "");
+    $message = trim($_POST["message"] ?? "");
+    $consent = isset($_POST["consent"]);
+
+    if ($name === "" || mb_strlen($name) < 2) {
+        $errors["name"] = "Meno musí mať aspoň 2 znaky.";
+    }
+
+    if ($email === "" || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors["email"] = "Zadajte platný email.";
+    }
+
+    if ($message === "" || mb_strlen($message) < 10) {
+        $errors["message"] = "Správa musí mať aspoň 10 znakov.";
+    }
+
+    if (!$consent) {
+        $errors["consent"] = "Musíte súhlasiť so spracovaním údajov.";
+    }
+
+    if (empty($errors)) {
+        header("Location: dakujeme.php");
+        exit;
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="sk">
 <head>
@@ -23,8 +56,6 @@
                 <p>Máte otázky? Potrebujete poradiť? Kontaktujte nás, radi vám pomôžeme.</p>
             </div>
         </section>
-
-
 
         <section class="contact-section">
             <div class="container">
@@ -75,76 +106,52 @@
                     </div>
                     <div class="contact-form-wrapper">
                         <h2>Napíšte nám</h2>
-                        
-                        <form id="contactForm" class="contact-form" novalidate>
+                        <?php if (!empty($errors)): ?>
+                            <div class="form-errors">
+                                <p>Opravte prosím chyby vo formulári.</p>
+                            </div>
+                        <?php endif; ?>
+                        <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="contact-form">
                             <div class="form-group">
-                                <label for="name">Meno a priezvisko <span class="required">*</span></label>
-                                <input 
-                                    type="text" 
-                                    id="name" 
-                                    name="name" 
-                                    placeholder="Ján Novák"
-                                    required
-                                >
-                                <span class="error-message" id="nameError"></span>
+                                <label for="name">Meno</label>
+                                <input type="text" id="name" name="name" value="<?= htmlspecialchars($name) ?>" required>
+                                <?php if (!empty($errors['name'])): ?>
+                                    <p class="form-error"><?= htmlspecialchars($errors['name']) ?></p>
+                                <?php endif; ?>
                             </div>
 
                             <div class="form-group">
-                                <label for="email">Email <span class="required">*</span></label>
-                                <input 
-                                    type="email" 
-                                    id="email" 
-                                    name="email" 
-                                    placeholder="jan.novak@example.com"
-                                    required
-                                >
-                                <span class="error-message" id="emailError"></span>
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" value="<?= htmlspecialchars($email) ?>" required>
+                                <?php if (!empty($errors['email'])): ?>
+                                    <p class="form-error"><?= htmlspecialchars($errors['email']) ?></p>
+                                <?php endif; ?>
                             </div>
 
                             <div class="form-group">
                                 <label for="phone">Telefón</label>
-                                <input 
-                                    type="tel" 
-                                    id="phone" 
-                                    name="phone" 
-                                    placeholder="+421 901 234 567"
-                                >
+                                <input type="tel" id="phone" name="phone" value="<?= htmlspecialchars($phone) ?>">
                             </div>
 
                             <div class="form-group">
-                                <label for="message">Vaša správa <span class="required">*</span></label>
-                                <textarea 
-                                    id="message" 
-                                    name="message" 
-                                    rows="5" 
-                                    placeholder="Napíšte nám vašu správu alebo otázku..."
-                                    required
-                                ></textarea>
-                                <span class="error-message" id="messageError"></span>
+                                <label for="message">Správa</label>
+                                <textarea id="message" name="message" rows="6" required><?= htmlspecialchars($message) ?></textarea>
+                                <?php if (!empty($errors['message'])): ?>
+                                    <p class="form-error"><?= htmlspecialchars($errors['message']) ?></p>
+                                <?php endif; ?>
                             </div>
 
-                            <div class="form-group checkbox-group">
-                                <label class="checkbox-label">
-                                    <input 
-                                        type="checkbox" 
-                                        id="consent" 
-                                        name="consent"
-                                        required
-                                    >
-                                    <span>
-                                        Súhlasím so spracovaním osobných údajov za účelom vybavenia mojej požiadavky. 
-                                        Vaše údaje nebudú poskytnuté tretím stranám a budú použité len na komunikáciu s vami.
-                                        <span class="required">*</span>
-                                    </span>
+                            <div class="form-group form-checkbox">
+                                <label>
+                                    <input type="checkbox" name="consent" <?= isset($_POST['consent']) ? 'checked' : '' ?>>
+                                    Súhlasím so spracovaním osobných údajov.
                                 </label>
-                                <span class="error-message" id="consentError"></span>
+                                <?php if (!empty($errors['consent'])): ?>
+                                    <p class="form-error"><?= htmlspecialchars($errors['consent']) ?></p>
+                                <?php endif; ?>
                             </div>
 
-                            <button type="submit" class="btn btn-primary btn-full">
-                                Odoslať správu →
-                            </button>
-
-                            <p class="form-note"><span class="required">*</span> Povinné polia</p>
+                            <button type="submit" class="btn btn-primary">Odoslať správu</button>
                         </form>
                     </div>
                 </div>
