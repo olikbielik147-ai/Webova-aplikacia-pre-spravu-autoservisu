@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "title": "Servis a údržba",
+        "description": "Pravidelný servis, výmena olejov a filtrov, kontrola brzd a pneumatík",
+        "icon": "🔧",
+        "image": "img/Servis a údržba.jpg"
+    },
+    {
+        "id": 2,
+        "title": "Diagnostika",
+        "description": "Komplexná elektronická diagnostika, kontrola motora a podvozku",
+        "icon": "📊",
+        "image": "img/Diagnostika.jpg"
+    },
+    {
+        "id": 3,
+        "title": "Opravy motora",
+        "description": "Generálne opravy, výmena rozvodov, opravy chladenia a vstrekovania",
+        "icon": "⚙️",
+        "image": "img/Opravy motora.jpg"
+    },
+    {
+        "id": 4,
+        "title": "Klimatizácia",
+        "description": "Servis klimatizácie, plnenie chladiva, dezinfekcia",
+        "icon": "❄️",
+        "image": "img/Klimatizácia.jpg"
+    },
+    {
+        "id": 5,
+        "title": "Elektrika",
+        "description": "Opravy elektrickej inštalácie, batérie, generátory, štartéry",
+        "icon": "⚡",
+        "image": "img/Elektrika.jpg"
+    },
+    {
+        "id": 6,
+        "title": "Karoséria a lak",
+        "description": "Opravy karosérie, lakované práce, odstránenie hrdze",
+        "icon": "🚗",
+        "image": "img/Karoséria a lak.jpg"
+    }
+]
