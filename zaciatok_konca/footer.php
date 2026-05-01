@@ -21,7 +21,7 @@
                 <div class="footer-col">
                     <h4>Kontakt</h4>
                     <ul class="footer-contact">
-                        <li>📍 Hlavná 123, 010 01 Žilina</li>   
+                        <li>📍 Hlavná 123, 010 01 Žilina</li>
                         <li>📞 <a href="tel:+421901234567">+421 901 234 567</a></li>
                         <li>✉️ <a href="mailto:info@autoservispro.sk">info@autoservispro.sk</a></li>
                     </ul>

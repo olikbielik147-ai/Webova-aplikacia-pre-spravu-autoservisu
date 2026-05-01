@@ -79,18 +79,11 @@ const carouselNext = document.getElementById('carouselNext');
 const carouselIndicators = document.getElementById('carouselIndicators');
 
 if (carouselContainer) {
-    const slides = [
-        { title: 'Servis a údržba', description: 'Pravidelný servis, výmena olejov a filtrov, kontrola brzd a pneumatík', icon: '🔧', image: 'img/Servis a údržba.jpg' },
-        { title: 'Diagnostika', description: 'Komplexná elektronická diagnostika, kontrola motora a podvozku', icon: '📊', image: 'img/Diagnostika.jpg' },
-        { title: 'Opravy motora', description: 'Generálne opravy, výmena rozvodov, opravy chladenia a vstrekovania', icon: '⚙️', image: 'img/Opravy motora.jpg' },
-        { title: 'Klimatizácia', description: 'Servis klimatizácie, plnenie chladiva, dezinfekcia', icon: '❄️', image: 'img/Klimatizácia.jpg' },
-        { title: 'Elektrika', description: 'Opravy elektrickej inštalácie, batérie, generátory, štartéry', icon: '⚡', image: 'img/Elektrika.jpg' },
-        { title: 'Karoséria a lak', description: 'Opravy karosérie, lakované práce, odstránenie hrdze', icon: '🚗', image: 'img/Karoséria a lak.jpg' }
-    ];
+    const slides = <?= isset($carouselServices) ? json_encode($carouselServices, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_UNESCAPED_UNICODE) : '[]' ?>;
 
     let currentSlide = 0;
 
-    slides.forEach((slide, index) => {
+    slides.forEach((slide) => {
         const slideElement = document.createElement('div');
         slideElement.className = 'carousel-slide';
         slideElement.innerHTML = `

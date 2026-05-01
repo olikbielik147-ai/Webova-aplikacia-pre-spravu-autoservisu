@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<?php require __DIR__ . '/zaciatok_konca/header.php'; ?>
+<?php require_once __DIR__ . '/zaciatok_konca/header.php'; ?>
 
 <main>
 
@@ -30,8 +30,10 @@
 
 </main>
 
-<?php require __DIR__ . '/zaciatok_konca/footer.php'; ?>
-<?php require __DIR__ . '/zaciatok_konca/skripty.php'; ?>
+<?php require_once __DIR__ . '/zaciatok_konca/footer.php'; ?>
+<?php require_once __DIR__ . '/zaciatok_konca/skripty.php'; ?>
+
+
 
 </body>
 </html>
