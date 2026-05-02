@@ -48,9 +48,7 @@ $carouselServices = array_map(function ($service) {
                             Náš tím skúsených mechanikov sa postará o váš automobil s maximálnou
                             starostlivosťou a odbornosťou.
                         </p>
-                        <a href="kontakt.php" class="btn btn-primary">
-                            
-                        </a>
+                        <a href="kontakt.php" class="btn btn-primary">Kontaktujte nás</a>
                     </div>
                     <div class="hero-image">
                         <img src="img/Mechanik pri práci.jpg" alt="Mechanik pri práci" loading="lazy">
