@@ -1,3 +1,4 @@
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     function setLayoutVars() {
