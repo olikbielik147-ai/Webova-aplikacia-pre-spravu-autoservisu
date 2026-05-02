@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <?php require __DIR__ . '/zaciatok_konca/header.php'; ?>
+    <?php require_once __DIR__ . '/zaciatok_konca/header.php'; ?>
     <main>
         <section class="page-header page-header-blue">
             <div class="container">
@@ -131,7 +131,7 @@
         </section>
     </main>
 
-    <?php require __DIR__ . '/zaciatok_konca/footer.php'; ?>
-<?php require __DIR__ . '/zaciatok_konca/skripty.php'; ?>
+    <?php require_once __DIR__ . '/zaciatok_konca/footer.php'; ?>
+<?php require_once __DIR__ . '/zaciatok_konca/skripty.php'; ?>
 </body>
 </html>
