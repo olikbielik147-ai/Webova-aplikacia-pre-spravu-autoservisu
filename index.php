@@ -108,11 +108,41 @@ $carouselServices = array_map(function ($service) {
                 </div>
 
                 <div class="carousel">
-                    <div class="carousel-container" id="carouselContainer">
+                    <?php foreach ($carouselServices as $index => $service): ?>
+                        <input type="radio" name="carousel" id="carousel-<?= $index ?>" <?= $index === 0 ? 'checked' : '' ?> hidden>
+                    <?php endforeach; ?>
+
+                    <style>
+                        .carousel input[type="radio"] { display: none; }
+                        <?php foreach ($carouselServices as $index => $service): ?>
+                            #carousel-<?= $index ?>:checked ~ .carousel-container { transform: translateX(-<?= $index * 100 ?>%); }
+                            #carousel-<?= $index ?>:checked ~ .carousel-indicators label[for="carousel-<?= $index ?>"] {
+                                background: var(--primary);
+                                width: 30px;
+                                border-radius: 5px;
+                            }
+                        <?php endforeach; ?>
+                    </style>
+
+                    <div class="carousel-container">
+                        <?php foreach ($carouselServices as $service): ?>
+                            <div class="carousel-slide">
+                                <div class="carousel-text">
+                                    <div class="carousel-icon"><?= htmlspecialchars($service['icon'], ENT_QUOTES, 'UTF-8') ?></div>
+                                    <h3><?= htmlspecialchars($service['title'], ENT_QUOTES, 'UTF-8') ?></h3>
+                                    <p><?= htmlspecialchars($service['description'], ENT_QUOTES, 'UTF-8') ?></p>
+                                </div>
+                                <div class="carousel-image">
+                                    <img src="<?= htmlspecialchars($service['image'], ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($service['title'], ENT_QUOTES, 'UTF-8') ?>" loading="lazy" decoding="async">
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
-                    <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Predchádzajúci slide">‹</button>
-                    <button class="carousel-btn carousel-next" id="carouselNext" aria-label="Nasledujúci slide">›</button>
-                    <div class="carousel-indicators" id="carouselIndicators">
+
+                    <div class="carousel-indicators">
+                        <?php foreach ($carouselServices as $index => $service): ?>
+                            <label class="indicator" for="carousel-<?= $index ?>" aria-label="Slide <?= $index + 1 ?>"></label>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>

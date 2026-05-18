@@ -207,13 +207,25 @@ img { max-width: 100%; height: auto; display: block; }
 .accordion-subtitle { color: #6b7280; font-size: 0.9rem; }
 .accordion-arrow { font-size: 1.5rem; color: #9ca3af; transition: transform 0.3s ease; }
 .accordion-header.active .accordion-arrow { transform: rotate(180deg); }
-.accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
-.accordion-content.active { max-height: 500px; }
 .accordion-body { padding: 1.5rem; background: #f9fafb; border-top: 1px solid #e5e7eb; }
 .accordion-body h4 { color: #111827; margin-bottom: 1rem; }
 .accordion-body ul { list-style: none; padding: 0; }
 .accordion-body li { color: #4b5563; padding: 0.5rem 0 0.5rem 1.5rem; position: relative; }
 .accordion-body li::before { content: '✓'; color: #2563eb; position: absolute; left: 0; }
+
+details.accordion-item { background: #fff; border-bottom: 1px solid #e5e7eb; }
+details.accordion-item summary.accordion-header { display: flex; align-items: center; gap: 1rem; padding: 1.5rem; cursor: pointer; list-style: none; }
+details.accordion-item summary.accordion-header::-webkit-details-marker { display: none; }
+details.accordion-item[open] summary.accordion-header { background: #f9fafb; }
+details.accordion-item summary.accordion-header:hover { background: #f9fafb; }
+details.accordion-item .accordion-icon-wrapper { background: #dbeafe; padding: 0.75rem; border-radius: 8px; flex-shrink: 0; }
+details.accordion-item .accordion-icon { font-size: 1.5rem; }
+details.accordion-item .accordion-title-wrapper { flex: 1; }
+details.accordion-item .accordion-title-wrapper h3 { color: #111827; margin-bottom: 0.25rem; }
+details.accordion-item .accordion-subtitle { color: #6b7280; font-size: 0.95rem; }
+details.accordion-item .accordion-arrow { margin-left: auto; transition: transform 0.3s ease; color: #9ca3af; }
+details.accordion-item[open] .accordion-arrow { transform: rotate(180deg); }
+details.accordion-item .accordion-content { padding: 0 1.5rem 1.5rem; }
 
 .pricing-section { padding: 4rem 0; background: #fff; }
 .table-wrapper { overflow-x: auto; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
