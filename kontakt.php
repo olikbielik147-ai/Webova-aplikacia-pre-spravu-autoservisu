@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 </head>
 <body>
-    <?php require_once __DIR__ . '/zaciatok_konca/header.php'; ?>
+    <?php require_once __DIR__ . '/zaciatok_koniec/header.php'; ?>
 
     <main>
         <section class="page-header page-header-blue">
@@ -158,8 +158,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </div>
         </section>
     </main>
-   <?php require_once __DIR__ . '/zaciatok_konca/footer.php'; ?>
-<?php require_once __DIR__ . '/zaciatok_konca/skripty.php'; ?>
+   <?php require_once __DIR__ . '/zaciatok_koniec/footer.php'; ?>
+<script src="zaciatok_koniec/skripty.js"></script>
 </body>
 </html>
-

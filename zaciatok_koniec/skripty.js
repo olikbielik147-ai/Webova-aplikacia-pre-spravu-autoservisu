@@ -1,4 +1,3 @@
-<script>
 document.addEventListener("DOMContentLoaded", function () {
     var hamburger = document.getElementById("hamburger");
     var navMenu = document.getElementById("navMenu");
@@ -19,4 +18,3 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
-</script>

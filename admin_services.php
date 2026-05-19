@@ -1,7 +1,8 @@
 <?php
 require_once __DIR__ . '/classes/ServiceRepository.php';
+require_once __DIR__ . '/classes/Database.php';
 
-$repository = new ServiceRepository(__DIR__ . '/storage/services.json');
+$repository = new ServiceRepository(new Database());
 $message = '';
 $errors = [];
 $editingService = null;
@@ -68,7 +69,7 @@ if ($editId > 0) {
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <?php require_once __DIR__ . '/zaciatok_konca/header.php'; ?>
+    <?php require_once __DIR__ . '/zaciatok_koniec/header.php'; ?>
     <main>
         <section class="page-header page-header-blue">
             <div class="container">
@@ -160,7 +161,7 @@ if ($editId > 0) {
             </div>
         </section>
     </main>
-    <?php require_once __DIR__ . '/zaciatok_konca/footer.php'; ?>
-    <?php require_once __DIR__ . '/zaciatok_konca/skripty.php'; ?>
+    <?php require_once __DIR__ . '/zaciatok_koniec/footer.php'; ?>
+    <script src="zaciatok_koniec/skripty.js"></script>
 </body>
 </html>

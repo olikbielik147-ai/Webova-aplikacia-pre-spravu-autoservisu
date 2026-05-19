@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/classes/ServiceRepository.php';
-$serviceRepository = new ServiceRepository(__DIR__ . '/storage/services.json');
+require_once __DIR__ . '/classes/Database.php';
+$serviceRepository = new ServiceRepository(new Database());
 $carouselServices = array_map(function ($service) {
     return $service->toArray();
 }, $serviceRepository->all());
@@ -22,7 +23,7 @@ $carouselServices = array_map(function ($service) {
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <?php require_once __DIR__ . '/zaciatok_konca/header.php'; ?>
+    <?php require_once __DIR__ . '/zaciatok_koniec/header.php'; ?>
     <div class="alert" id="alert">
         <div class="container">
             <div class="alert-content">
@@ -183,9 +184,8 @@ $carouselServices = array_map(function ($service) {
         </section>
     </main>
 
-    <?php require_once __DIR__ . '/zaciatok_konca/footer.php'; ?>
-<?php require_once __DIR__ . '/zaciatok_konca/skripty.php'; ?>
+    <?php require_once __DIR__ . '/zaciatok_koniec/footer.php'; ?>
+<script src="zaciatok_koniec/skripty.js"></script>
 </body>
 
 </html>
-
