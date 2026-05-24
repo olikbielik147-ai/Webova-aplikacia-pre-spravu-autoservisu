@@ -1,35 +1,19 @@
 <?php
-$errors = [];
-$name = $email = $phone = $message = "";
+require_once __DIR__ . '/classes/ContactController.php';
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $name = trim($_POST["name"] ?? "");
-    $email = trim($_POST["email"] ?? "");
-    $phone = trim($_POST["phone"] ?? "");
-    $message = trim($_POST["message"] ?? "");
-    $consent = isset($_POST["consent"]);
+$controller = new ContactController($_POST, $_SERVER['REQUEST_METHOD']);
 
-    if ($name === "" || mb_strlen($name) < 2) {
-        $errors["name"] = "Meno musí mať aspoň 2 znaky.";
-    }
-
-    if ($email === "" || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors["email"] = "Zadajte platný email.";
-    }
-
-    if ($message === "" || mb_strlen($message) < 10) {
-        $errors["message"] = "Správa musí mať aspoň 10 znakov.";
-    }
-
-    if (!$consent) {
-        $errors["consent"] = "Musíte súhlasiť so spracovaním údajov.";
-    }
-
-    if (empty($errors)) {
-        header("Location: dakujeme.php");
-        exit;
-    }
+if ($controller->handleRequest()) {
+    header('Location: dakujeme.php');
+    exit;
 }
+
+$errors = $controller->getErrors();
+$name = $controller->getValue('name');
+$email = $controller->getValue('email');
+$phone = $controller->getValue('phone');
+$message = $controller->getValue('message');
+$consentChecked = $controller->getCheckboxValue() ? 'checked' : '';
 ?>
 <!DOCTYPE html>
 <html lang="sk">
@@ -143,7 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                             <div class="form-group form-checkbox">
                                 <label>
-                                    <input type="checkbox" name="consent" <?= isset($_POST['consent']) ? 'checked' : '' ?>>
+                                    <input type="checkbox" name="consent" <?= $consentChecked ?>>
                                     Súhlasím so spracovaním osobných údajov.
                                 </label>
                                 <?php if (!empty($errors['consent'])): ?>

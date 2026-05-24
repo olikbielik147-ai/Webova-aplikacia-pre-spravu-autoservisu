@@ -172,7 +172,7 @@ img { max-width: 100%; height: auto; display: block; }
 .stat-number { font-size: 2.5rem; color: #111827; margin-bottom: 0.5rem; }
 .stat-card p { color: #6b7280; margin: 0; }
 
-/* <!-- ---------- Hodnoty firmy ---------- --> */
+
 .values { padding: 4rem 0; background: linear-gradient(135deg, #374151 0%, #1f2937 100%); color: #fff; }
 .values .section-header h2 { color: #fff; }
 .values .section-header p { color: #d1d5db; }
@@ -181,7 +181,7 @@ img { max-width: 100%; height: auto; display: block; }
 .value-card h3 { color: #fff; margin-bottom: 1rem; }
 .value-card p { color: #d1d5db; }
 
-/* <!-- ---------- certifikáty ---------- --> */
+
 .certifications { padding: 4rem 0; background: #f9fafb; }
 .cert-box { background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
 .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
@@ -189,11 +189,11 @@ img { max-width: 100%; height: auto; display: block; }
 .cert-list { list-style: none; padding: 0; }
 .cert-list li { color: #4b5563; padding: 0.5rem 0; }
 
-/* <!-- ---------- Servis obrázok ---------- --> */
+
 .service-image { padding: 2rem 0; background: #fff; }
 .service-image img { width: 100%; height: 400px; object-fit: cover; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
 
-/* <!-- Akordeón styles --> */
+
 .accordion-section { padding: 4rem 0; background: #f9fafb; }
 .accordion { background: #fff; }
 .accordion-item { border-bottom: 1px solid #e5e7eb; }
@@ -253,7 +253,7 @@ details.accordion-item .accordion-content { padding: 0 1.5rem 1.5rem; }
 .contact-image { margin-top: 2rem; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
 .contact-image img { width: 100%; height: 300px; object-fit: cover; }
 
-/* <!-- ---------- kontakt formular ---------- --> */
+
 .contact-form-wrapper h2 { color: #111827; margin-bottom: 2rem; }
 .contact-form { background: #f9fafb; padding: 2rem; border-radius: 12px; }
 .form-group { margin-bottom: 1.5rem; }
@@ -270,7 +270,7 @@ details.accordion-item .accordion-content { padding: 0 1.5rem 1.5rem; }
 .error-message { display: block; color: #ef4444; font-size: 0.875rem; margin-top: 0.5rem; }
 .form-note { text-align: center; color: #6b7280; font-size: 0.9rem; margin-top: 1rem; }
 
-/* <!-- ---------- Responsive pravidlá (telefon) ---------- --> */
+
 @media (max-width: 768px) {
     h1 { font-size: 2rem; }
     h2 { font-size: 1.75rem; }

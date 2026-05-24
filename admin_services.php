@@ -1,61 +1,13 @@
 <?php
-require_once __DIR__ . '/classes/ServiceRepository.php';
-require_once __DIR__ . '/classes/Database.php';
+require_once __DIR__ . '/classes/AdminServiceController.php';
 
-$repository = new ServiceRepository(new Database());
-$message = '';
-$errors = [];
-$editingService = null;
+$controller = new AdminServiceController($_GET);
+$controller->handleRequest($_POST);
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $action = $_POST['action'] ?? '';
-    $title = trim($_POST['title'] ?? '');
-    $description = trim($_POST['description'] ?? '');
-    $icon = trim($_POST['icon'] ?? '');
-    $image = trim($_POST['image'] ?? '');
-    $id = isset($_POST['id']) ? (int) $_POST['id'] : 0;
-
-    if ($action === 'delete') {
-        if ($repository->delete($id)) {
-            $message = 'Služba bola úspešne odstránená.';
-        } else {
-            $errors[] = 'Nepodarilo sa odstrániť službu.';
-        }
-    } else {
-        if ($title === '') {
-            $errors[] = 'Názov služby je povinný.';
-        }
-        if ($description === '') {
-            $errors[] = 'Popis služby je povinný.';
-        }
-        if ($icon === '') {
-            $errors[] = 'Ikona služby je povinná.';
-        }
-        if ($image === '') {
-            $errors[] = 'Cesta k obrázku je povinná.';
-        }
-
-        if (empty($errors)) {
-            if ($action === 'create') {
-                $repository->create(new Service(0, $title, $description, $icon, $image));
-                $message = 'Služba bola úspešne pridaná.';
-            } elseif ($action === 'update') {
-                $service = new Service($id, $title, $description, $icon, $image);
-                if ($repository->update($service)) {
-                    $message = 'Služba bola úspešne aktualizovaná.';
-                } else {
-                    $errors[] = 'Nepodarilo sa aktualizovať službu.';
-                }
-            }
-        }
-    }
-}
-
-$services = $repository->all();
-$editId = isset($_GET['edit']) ? (int) $_GET['edit'] : 0;
-if ($editId > 0) {
-    $editingService = $repository->find($editId);
-}
+$message = $controller->getMessage();
+$errors = $controller->getErrors();
+$services = $controller->getServices();
+$editingService = $controller->getEditingService();
 ?>
 <!DOCTYPE html>
 <html lang="sk">
