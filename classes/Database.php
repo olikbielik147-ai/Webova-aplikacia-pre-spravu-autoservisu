@@ -27,7 +27,7 @@ class Dbh
 
     public function getConnection(): PDO
     {
-        return $this->connect();
+        return $this->pdo;
     }
 
     private function initializeUsersTable(): void

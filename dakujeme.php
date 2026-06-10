@@ -31,7 +31,7 @@
 </main>
 
 <?php require_once __DIR__ . '/zaciatok_koniec/footer.php'; ?>
-<script src="zaciatok_koniec/skripty.js"></script>
+<?php require_once __DIR__ . '/zaciatok_koniec/skripty.php'; ?>
 
 </body>
 </html>

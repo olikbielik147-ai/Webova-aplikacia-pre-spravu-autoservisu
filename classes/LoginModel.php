@@ -35,7 +35,7 @@ class Login extends Dbh
 
         $_SESSION["userid"] = (int) $userData[0]["users_id"];
         $_SESSION["useruid"] = $userData[0]["users_uid"];
-        $_SESSION["is_admin"] = 
+        $_SESSION["is_admin"] =
             (isset($userData[0]["users_email"]) && $userData[0]["users_email"] === "admin@gmail.com")
             || (isset($userData[0]["users_uid"]) && $userData[0]["users_uid"] === "admin");
 
