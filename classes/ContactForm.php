@@ -14,9 +14,9 @@ class ContactForm
 
     public function validate(): bool
     {
-        $name = $this->getString('name');
-        $email = $this->getString('email');
-        $message = $this->getString('message');
+        $name = $this->getValue('name');
+        $email = $this->getValue('email');
+        $message = $this->getValue('message');
         $consent = isset($this->data['consent']);
 
         if ($name === '' || mb_strlen($name) < 2) {
@@ -44,16 +44,6 @@ class ContactForm
     }
 
     public function getValue(string $key): string
-    {
-        return $this->getString($key);
-    }
-
-    public function requestValue(string $key, string $default = ''): string
-    {
-        return $this->data[$key] ?? $default;
-    }
-
-    private function getString(string $key): string
     {
         return isset($this->data[$key]) && is_string($this->data[$key]) ? trim($this->data[$key]) : '';
     }

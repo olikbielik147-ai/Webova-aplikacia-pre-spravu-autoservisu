@@ -41,7 +41,7 @@ class ContactController
 
     public function isConsentChecked(): bool
     {
-        return $this->form->requestValue('consent') !== '';
+        return $this->form->getValue('consent') !== '';
     }
 
     public function getCheckboxValue(): bool

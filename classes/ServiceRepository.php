@@ -62,7 +62,7 @@ class ServiceRepository
 
     public function delete(int $id): bool
     {
-        $stmt = $this->pdo->prepare('DELETE FROM services WHERE id = :id');
+        $stmt = $this->pdo->prepare('DELETE FROM services WHERE id = :i d');
         $stmt->execute([':id' => $id]);
 
         return $stmt->rowCount() > 0;
