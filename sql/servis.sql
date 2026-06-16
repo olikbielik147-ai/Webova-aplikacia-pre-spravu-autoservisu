@@ -89,7 +89,6 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`users_id`, `users_uid`, `users_email`, `users_pwd`, `users_created_at`) VALUES
-(1, 'MAREK', 'ostalsomsinohy@gmail.drk', '$2y$10$d.7hG9Q1Pyb8InJx.hWP/Oj36CarXxx5sYPHwVBBPOTKIfYGHUiwO', '2026-06-13 10:53:08'),
 (2, 'admin', 'admin@gmail.com', '$2y$10$LtOlm.ni/jXyl2QeDg7qaeTj7IXUsYVztWQlfCTLat3wQa5cFznhm', '2026-06-13 10:53:55');
 
 --
